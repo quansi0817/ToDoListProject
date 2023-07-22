@@ -1,4 +1,5 @@
 {
     "1": { "password": "ron123", "name": "ron", "email": "ron@email.com" },
-    "2": { "password": "ron123", "name": "ron", "email": "ronemail" }
+    "2": { "password": "hermione123", "name": "hermione", "email": "hermione@email.com" },
+    "3": { "password": "harry", "name": "harry", "email": "harry1" }
 }

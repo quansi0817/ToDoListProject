@@ -4,7 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.*;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -12,14 +12,34 @@ import org.json.JSONTokener;
 import list.List;
 
 public class User {
-    private static int id;
+    private int id;
     private String email;
     private String name;
     private String password;
     private List[] list;
     private String[] allTasks;
 
-    public static int getId() {
+    public User() {
+
+    }
+
+    public User(int id, String email, String name, String password) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+    }
+
+    public User(int id, String email, String name, String password, List[] list, String[] allTasks) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.password = password;
+        this.list = list;
+        this.allTasks = allTasks;
+    }
+
+    public int getId() {
         return id;
     }
 
@@ -74,6 +94,16 @@ public class User {
             // Parse the JSON data into a JSONObject
             JSONObject userJsonObject = new JSONObject(new JSONTokener(usersData));
 
+            // get the last ID and the new ID
+            String lastId = "";
+            Iterator<String> keys = userJsonObject.keys();
+            while (keys.hasNext()) {
+                String key = keys.next();
+                System.out.println(key);
+                lastId = key;
+            }
+            int lastIntId = Integer.parseInt(lastId);
+
             // Get the input from user:
             System.out.println("Enter your name: ");
             String name = input.nextLine();
@@ -81,6 +111,9 @@ public class User {
             String password = input.nextLine();
             System.out.println("Enter your email:");
             String email = input.nextLine();
+            int newId = lastIntId + 1;
+            // create new user
+            User newUser = new User(newId, email, name, password);
 
             // Store the input data into one
             JSONObject user = new JSONObject();
@@ -88,11 +121,9 @@ public class User {
             user.put("password", password);
             user.put("email", email);
             System.out.println(userJsonObject);
-            // Get user ID
-            int id = User.getId() + 1;
 
             // Add new data to this ID JSONObject
-            userJsonObject.put(id + "", user);
+            userJsonObject.put(newId + "", user);
 
             // Write the updated JSONObject back to the file
             try (FileWriter fileWriter = new FileWriter(filePath)) {
