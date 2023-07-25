@@ -36,7 +36,7 @@ public class LoginScreenController {
             App.loginName = username;
             // createUser(username);
             // User user = new User(username);
-            App.setRoot("../fxml/HomeScreen");
+            App.setRoot("../fxml/ToDoList");
 
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

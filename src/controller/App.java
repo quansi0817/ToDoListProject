@@ -15,6 +15,7 @@ public class App extends Application {
     private static Stage primaryStage;
     public static String loginName; // Store the login name here
     private static User user;
+    public static String currentCategory;
 
     public static User getUser() {
         return user;
