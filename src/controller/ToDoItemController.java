@@ -5,11 +5,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Modality;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-
-import java.util.ArrayList;
-import java.util.List;
-
+import dataClass.List; 
+import dataClass.Item;
 public class ToDoItemController {
     @FXML
     private Button addItemButton;
@@ -21,18 +18,21 @@ public class ToDoItemController {
     private Button editItemButton;
 
     @FXML
-    private ListView<String> itemView;
+    private ListView<Item> itemView;
+    
 
-    private List<String> items = new ArrayList<>();
+    private List list;
 
     @FXML
     public void initialize() {
+       
+         list = new List("1", "My List");
 
-        items.add("Item 1");
-        items.add("Item 2");
-        items.add("Item 3");
+        list.addItem(new Item("1", "Item 1", "title 1"));
+        list.addItem(new Item("2", "Item 2","title 2"));
+        list.addItem(new Item("3", "Item 3","title 3"));
 
-        itemView.getItems().addAll(items);
+        itemView.getItems().addAll(list.getItems());
 
         // add button action
         addItemButton.setOnAction(event -> {
@@ -42,32 +42,37 @@ public class ToDoItemController {
             dialog.setContentText("Please enter your new item:");
 
             dialog.initModality(Modality.APPLICATION_MODAL);
-            String newItem = dialog.showAndWait().orElse("");
-            if (!newItem.isEmpty()) {
+            String newItemDescription = dialog.showAndWait().orElse("");
+            if (!newItemDescription.isEmpty()) {
+                Item newItem = new Item("id", newItemDescription, "title"); 
+                list.addItem(newItem);
                 itemView.getItems().add(newItem);
             }
         });
         // delete button action
         deleteItemButton.setOnAction(event -> {
-            String selectedItem = itemView.getSelectionModel().getSelectedItem();
+            Item selectedItem = itemView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null) {
+            list.removeItem(selectedItem);
             itemView.getItems().remove(selectedItem);
-        });
+        }
+    });
         // edit button action
         editItemButton.setOnAction(event -> {
-            String selectedItem = itemView.getSelectionModel().getSelectedItem();
-
-            TextInputDialog dialog = new TextInputDialog(selectedItem);
+            Item selectedItem = itemView.getSelectionModel().getSelectedItem();
+            if (selectedItem != null) {
+            TextInputDialog dialog = new TextInputDialog(selectedItem.getTitle());
             dialog.setTitle("Edit Item");
             dialog.setHeaderText(null);
             dialog.setContentText("Please edit your item:");
 
-            String newItem = dialog.showAndWait().orElse("");
-            if (!newItem.isEmpty()) {
-                int selectedIndex = itemView.getSelectionModel().getSelectedIndex();
-                itemView.getItems().set(selectedIndex, newItem);
+            String newTitle = dialog.showAndWait().orElse("");
+            if (!newTitle.isEmpty()) {
+                selectedItem.setTitle(newTitle); 
+                itemView.refresh(); 
+        }
             }
-
-        });
-
-    }
+    });
 }
+    }
+
