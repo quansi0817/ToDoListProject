@@ -55,7 +55,13 @@ public class ToDoListController {
         deleteButton.setOnAction(event -> {
             String selectedCategory = listView.getSelectionModel().getSelectedItem();
             if (selectedCategory != null) {
-                listView.getItems().remove(selectedCategory);
+                try {
+                    WriteData.deleteList(selectedCategory);
+                    items.remove(selectedCategory);
+                    listView.refresh();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
             }
         });
 
