@@ -1,7 +1,6 @@
 package controller;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -39,10 +38,12 @@ public class RegisterController {
 
             try {
                 String filePath = "src/data/user.json";
-
+                String listFilePath = "src/data/list.csv";
                 // Read the existing JSON data from the file into a String
                 String usersData = new String(Files.readAllBytes(Paths.get(filePath)));
-
+                PrintWriter listOutput = new PrintWriter(new FileWriter(listFilePath, true));
+                listOutput.println(name + ",");
+                listOutput.close();
                 // Parse the JSON data into a JSONObject
                 JSONObject userJsonObject = new JSONObject(new JSONTokener(usersData));
 
@@ -63,7 +64,6 @@ public class RegisterController {
                 // user.put("id", newId);
                 user.put("password", password);
                 user.put("email", email);
-                System.out.println(userJsonObject);
 
                 // Add new data to this ID JSONObject
                 userJsonObject.put(name, user);
