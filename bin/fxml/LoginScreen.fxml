@@ -9,11 +9,11 @@
 
 
 <StackPane fx:controller="controller.LoginScreenController" xmlns:fx="http://javafx.com/fxml" prefHeight="200.0" prefWidth="400.0">
-    <VBox alignment="CENTER" spacing="10">
-        <Label text="Login Screen" />
-        <TextField fx:id="usernameField" promptText="Username" />
-        <PasswordField fx:id="passwordField" promptText="Password" />
-        <Button text="Login" onAction="#handleLoginButtonAction" />
-        <Button text="Register" onAction="#handleRegisterButtonAction" />
-    </VBox>
+   <VBox alignment="CENTER" spacing="10">
+      <Label text="Login Screen" />
+      <TextField fx:id="usernameField" promptText="Username" />
+      <PasswordField fx:id="passwordField" promptText="Password" />
+      <Button text="Login" onAction="#handleLoginButtonAction" />
+      <Button text="Register" onAction="#handleRegisterButtonAction" />
+   </VBox>
 </StackPane>

@@ -4,8 +4,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextInputDialog;
 import javafx.stage.Modality;
+import tool.WriteTaskData;
 import javafx.scene.control.Button;
 import dataClass.TaskList;
+
+import java.io.IOException;
+
 import dataClass.Item;
 
 public class ToDoItemController {
@@ -44,11 +48,16 @@ public class ToDoItemController {
             dialog.initModality(Modality.APPLICATION_MODAL);
             String newItemDescription = dialog.showAndWait().orElse("");
             if (!newItemDescription.isEmpty()) {
-                Item newItem = new Item("id", newItemDescription, "title");
-                list.addItem(newItem);
-                itemView.getItems().add(newItem);
-            }
-        });
+        Item newItem = new Item("id", newItemDescription, "title");
+        list.addItem(newItem);
+        itemView.getItems().add(newItem);
+        try {
+            WriteTaskData.addTask("userName", "listTitle", newItem);  // 你需要提供真实的userName和listTitle
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+});
         // delete button action
         deleteItemButton.setOnAction(event -> {
             Item selectedItem = itemView.getSelectionModel().getSelectedItem();

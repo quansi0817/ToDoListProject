@@ -47,10 +47,6 @@ public String getTitle() {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id='" + id + '\'' +
-                ", description='" + description + '\'' +
-                ", isCompleted=" + isCompleted +
-                '}';
+        return title + " (" + description + ")";
     }
 }
