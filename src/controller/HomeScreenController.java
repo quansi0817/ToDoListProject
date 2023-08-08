@@ -30,4 +30,9 @@ public class HomeScreenController implements Initializable {
         welcomeLabel.setText("Welcome, " + App.loginName + "!");
     }
 
+    @FXML
+    private void createNewListAction() {
+
+    }
+
 }

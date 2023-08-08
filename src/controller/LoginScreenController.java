@@ -1,7 +1,6 @@
 package controller;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
@@ -65,7 +64,6 @@ public class LoginScreenController {
             while (keys.hasNext()) {
                 if (username.equals(keys.next())) {
                     JSONObject userDetail = new JSONObject(userJsonObject.get(username).toString());
-                    System.out.println(userDetail.get("password"));
                     if (userDetail.get("password").toString().equals(password)) {
                         createUser(username, userDetail.get("email").toString(), password);
                         return true;

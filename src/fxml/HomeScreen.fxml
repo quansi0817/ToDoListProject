@@ -12,5 +12,6 @@
         <Label fx:id="welcomeLabel" text="abc" />
         <Button text="Logout" onAction="#handleLogoutButtonAction" />
         <Button text="PrintUserInfo" onAction="#printUserInfo" />
+        <Button text="Create New List" onAction="#createNewListAction" />
     </VBox>
 </StackPane>

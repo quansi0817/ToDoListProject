@@ -39,7 +39,7 @@ public class App extends Application {
         try {
             Parent root = FXMLLoader.load(App.class.getResource("../fxml/LoginScreen.fxml"));
             primaryStage.setTitle("Login Screen");
-            primaryStage.setScene(new Scene(root, 400, 200));
+            primaryStage.setScene(new Scene(root, 600, 400));
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
@@ -49,7 +49,7 @@ public class App extends Application {
     public static void setRoot(String fxmlFile) {
         try {
             Parent root = FXMLLoader.load(App.class.getResource(fxmlFile + ".fxml"));
-            primaryStage.setScene(new Scene(root, 400, 200));
+            primaryStage.setScene(new Scene(root, 500, 400));
             primaryStage.setTitle(fxmlFile);
         } catch (IOException e) {
             e.printStackTrace();

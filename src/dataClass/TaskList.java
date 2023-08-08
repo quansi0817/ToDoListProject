@@ -2,23 +2,28 @@ package dataClass;
 
 import java.util.ArrayList;
 
-public class List {
+public class TaskList {
     private String id;
     private String title;
     private boolean isEditing;
     private ArrayList<Item> items;
 
-    public List() {
+    public TaskList() {
     }
 
-    public List(String id, String title) {
+    public TaskList(String title) {
+        this.title = title;
+        this.isEditing = true;
+    }
+
+    public TaskList(String id, String title) {
         this.id = id;
         this.title = title;
         this.isEditing = true;
         this.items = new ArrayList<>();
     }
 
-    public List(String id, String title, boolean isEditing) {
+    public TaskList(String id, String title, boolean isEditing) {
         this.id = id;
         this.title = title;
         this.isEditing = isEditing;
@@ -62,7 +67,7 @@ public class List {
 
     public static String createList(String title) {
 
-        List newList = new List("", title);
+        TaskList newList = new TaskList("", title);
         return newList.getId();
     }
 }

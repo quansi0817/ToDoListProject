@@ -1,8 +1,26 @@
 {
-    "ron": { "password": "ron123", "email": "ron@email.com" },
-    "harry": { "password": "harry123", "email": "harry@email.com" },
-    "ginny": { "password": "ginny123", "email": "ginny@email.com" },
-    "hermione": { "password": "hermione123", "email": "hermione@email.com" },
-    "neville": { "password": "neville123", "email": "neville@email.com" },
-    "luna": { "password": "luna123", "email": "luna@email.com" }
+    "ron": {
+        "password": "ron123",
+        "email": "ron@email.com"
+    },
+    "harry": {
+        "password": "harry123",
+        "email": "harry@email.com"
+    },
+    "ginny": {
+        "password": "ginny123",
+        "email": "ginny@email.com"
+    },
+    "hermione": {
+        "password": "hermione123",
+        "email": "hermione@email.com"
+    },
+    "neville": {
+        "password": "neville123",
+        "email": "neville@email.com"
+    },
+    "luna": {
+        "password": "luna123",
+        "email": "luna@email.com"
+    }
 }
