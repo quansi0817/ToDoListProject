@@ -41,14 +41,23 @@ public class ToDoListController {
 
         // edit button action
         editButton.setOnAction(event -> {
-            System.out.println(event);
             String selectedCategory = listView.getSelectionModel().getSelectedItem();
-            System.out.println(selectedCategory);
-            Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setTitle("Edit Category");
-            alert.setHeaderText(null);
-            alert.setContentText("You selected " + selectedCategory);
-            alert.showAndWait();
+            TextInputDialog dialog = new TextInputDialog(selectedCategory);
+            dialog.setTitle("Edit Category");
+            dialog.setHeaderText(null);
+            dialog.setContentText("Please edit your list: ");
+            String newTitle = dialog.showAndWait().orElse("");
+            if (!newTitle.isBlank()) {
+                try {
+                    int indexOfList = WriteData.findIndex(listArr, selectedCategory) - 1;
+                    App.getUser().getList().set(indexOfList, new TaskList(newTitle));
+                    items.set(indexOfList, newTitle);
+                    WriteData.writeListDataToFile();
+                    listView.refresh();
+                } catch (IOException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
 
         });
 
@@ -91,10 +100,6 @@ public class ToDoListController {
                 App.setRoot("../fxml/TodoItem");
             }
         });
-
-    }
-
-    public void addCategoryToDatabase(String title) {
 
     }
 

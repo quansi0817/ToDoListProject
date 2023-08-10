@@ -23,6 +23,9 @@ public class ToDoItemController {
     private Button editItemButton;
 
     @FXML
+    private Button toHomepageButton;
+
+    @FXML
     private ListView<Item> itemView;
 
     private TaskList list;
@@ -48,16 +51,16 @@ public class ToDoItemController {
             dialog.initModality(Modality.APPLICATION_MODAL);
             String newItemDescription = dialog.showAndWait().orElse("");
             if (!newItemDescription.isEmpty()) {
-        Item newItem = new Item("id", newItemDescription, "title");
-        list.addItem(newItem);
-        itemView.getItems().add(newItem);
-        try {
-            WriteTaskData.addTask("userName", "listTitle", newItem);  // 你需要提供真实的userName和listTitle
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-});
+                Item newItem = new Item("id", newItemDescription, "title");
+                list.addItem(newItem);
+                itemView.getItems().add(newItem);
+                try {
+                    WriteTaskData.addTask("userName", "listTitle", newItem); // 你需要提供真实的userName和listTitle
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
         // delete button action
         deleteItemButton.setOnAction(event -> {
             Item selectedItem = itemView.getSelectionModel().getSelectedItem();
@@ -81,6 +84,10 @@ public class ToDoItemController {
                     itemView.refresh();
                 }
             }
+        });
+
+        toHomepageButton.setOnAction(event -> {
+            App.setRoot("../fxml/ToDoList");
         });
     }
 }

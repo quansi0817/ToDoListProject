@@ -84,4 +84,12 @@ public class WriteData {
         output.close();
         appendOutput.close();
     }
+
+    public static int findIndex(String[] arr, String targetedStr) {
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i].equals(targetedStr))
+                return i;
+        }
+        return -1;
+    }
 }
