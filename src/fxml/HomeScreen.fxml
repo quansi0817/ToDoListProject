@@ -7,10 +7,10 @@
 
 
 <StackPane fx:controller="controller.HomeScreenController" xmlns:fx="http://javafx.com/fxml" prefHeight="200.0" prefWidth="400.0">
-    <VBox alignment="CENTER" spacing="10">
+    <VBox alignment="CENTER" spacing="10" >
         <Label text="Welcome to the Home Screen!" />
         <Label fx:id="welcomeLabel" text="abc" />
-        <Button text="Logout" onAction="#handleLogoutButtonAction" />
+        <Button text="Logout" onAction="#handleLogoutButtonAction" styleClass="button" />
         <Button text="PrintUserInfo" onAction="#printUserInfo" />
         <Button text="Create New List" onAction="#createNewListAction" />
     </VBox>
