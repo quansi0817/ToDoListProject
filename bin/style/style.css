@@ -1,33 +1,43 @@
-.linear-grad
-{
-    -fx-background-color: linear-gradient(to bottom left, #71D9B6, #18C27B);
+.linear-grad {
+    -fx-background-color: linear-gradient(to bottom left, #71d9b6, #18c27b);
 }
 
-.linear-grad-Dashboard
-{
-    -fx-background-color: linear-gradient(to bottom , #3454F5, #0082F4);
+.linear-grad-Dashboard {
+    -fx-background-color: linear-gradient(to bottom, #3454f5, #0082f4);
 }
 
-.text-field{
-    -fx-prompt-text-fill:c5c5c5;
+.text-field {
+    -fx-prompt-text-fill: c5c5c5;
     -fx-font-size: 14px;
-
 }
 
-.text-field:focus{
+.text-field:focus {
     -fx-prompt-text-size: 14px;
 }
 
-.jfx-snackbar-content{
+.jfx-snackbar-content {
     -fx-background-color: #ff1c03;
 }
 
-.jfx-snackbar-toast{
+.jfx-snackbar-toast {
     -fx-alignment: center;
     -fx-text-fill: #ffffff;
 }
 
-.Top-Pane
-{
+.Top-Pane {
     -fx-background-color: linear-gradient(Gray, Black);
+}
+.button {
+    -fx-border-radius: 10px;
+    -fx-color: #333;
+    -fx-background-color: #0082f4;
+}
+.text-field {
+    -fx-border-radius: 5px;
+    -fx-border-color: #c2c8d1;
+    /* -fx-border-width: 1px; */
+}
+.text-field:focus {
+    -fx-border-color: #a3a5a7;
+    transition: all 2s;
 }

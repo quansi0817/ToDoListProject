@@ -20,7 +20,7 @@ public class User {
         this.name = name;
         this.password = password;
         this.list = new ArrayList<>();
-    }
+    } 
 
     public User(String email, String name, String password, ArrayList<TaskList> list, String[] allTasks) {
         // this.id = id;

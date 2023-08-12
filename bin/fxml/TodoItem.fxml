@@ -13,6 +13,7 @@
       <Button fx:id="addItemButton" layoutX="229.0" layoutY="93.0" mnemonicParsing="false" text="Add New" />
       <Button fx:id="editItemButton" layoutX="229.0" layoutY="131.0" mnemonicParsing="false" text="Edit" />
       <Button fx:id="deleteItemButton" layoutX="229.0" layoutY="167.0" mnemonicParsing="false" text="Delete" />
-      <Button fx:id="toHomepageButton" layoutX="229.0" layoutY="167.0" mnemonicParsing="false" text="Homepage" />
+<Button fx:id="toHomepageButton" layoutX="229.0" layoutY="203.0" mnemonicParsing="false" text="Back To List" />
+
    </children>
 </AnchorPane>
