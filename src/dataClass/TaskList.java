@@ -14,8 +14,9 @@ public class TaskList {
     public TaskList(String title) {
         this.title = title;
         this.isEditing = true;
+        this.items = new ArrayList<>();  // Added initialization here
     }
-
+    
     public TaskList(String id, String title) {
         this.id = id;
         this.title = title;
@@ -57,8 +58,10 @@ public class TaskList {
         items.add(item);
     }
 
-    public ArrayList<Item> getItems() {
-        return items;
+    public ArrayList<Item> getItems() {    if (items == null) {
+        items = new ArrayList<>(); // Initialize items if it's null
+    }
+    return items;
     }
 
     public void removeItem(Item item) {

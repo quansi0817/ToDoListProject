@@ -33,6 +33,7 @@ public class ToDoListController {
     private String[] listArr;
     private Scanner input;
     private String filePath = "src/data/list.csv";
+    public static String selectedList;
 
     @FXML
     public void initialize() throws IOException {
@@ -93,15 +94,17 @@ public class ToDoListController {
             }
         });
 
-        listView.setOnMouseClicked(event -> {
-            if (event.getClickCount() == 2) {
-                String selectedCategory = listView.getSelectionModel().getSelectedItem();
-                App.currentCategory = selectedCategory;
-                App.setRoot("../fxml/TodoItem");
-            }
-        });
+     listView.setOnMouseClicked(event -> {
+    if (event.getClickCount() == 2) {
+        selectedList = listView.getSelectionModel().getSelectedItem();  // No 'String' before this
+        App.currentCategory = selectedList;
+        App.setRoot("../fxml/TodoItem");
+    }
+});
+
 
     }
+
 
     public void loadList() throws IOException {
         // retrieve list data from data file.

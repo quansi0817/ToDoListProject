@@ -1,49 +1,50 @@
 package tool;
 
-import java.util.*;
 import java.io.*;
+import java.util.*;
 import dataClass.Item;
-import dataClass.TaskList;
-
 
 public class WriteTaskData {
 
-    private static File taskFile = new File("src/data/task.csv");
+    private static final File taskFile = new File("src/data/task.csv");
 
-    public static void deleteTask(String userName,String listTitle, String itemId) throws IOException {
-        ArrayList<String> tasks = new ArrayList<>();
-        Scanner input = new Scanner(taskFile);
-        while (input.hasNext()) {
-            String taskStr = input.nextLine();
-            tasks.add(taskStr);
-        }
-        input.close();
+    public static void deleteTask(String userName, String listTitle, String itemId) throws IOException {
+        List<String> tasks = new ArrayList<>();
 
-        PrintWriter output = new PrintWriter(new FileWriter(taskFile));
-        PrintWriter appendOutput = new PrintWriter(new FileWriter(taskFile, true));
-
-        for (Iterator<String> it = tasks.iterator(); it.hasNext();) {
-            String taskData = it.next();
-            String[] taskDataArray = taskData.split(",");
-            if (taskDataArray[0].equals(userName) && taskDataArray[1].equals(listTitle) && taskDataArray[2].equals(itemId)) {
-                it.remove();
-            } else {
-                appendOutput.println(taskData);
+        try (Scanner input = new Scanner(taskFile)) {
+            while (input.hasNext()) {
+                String taskStr = input.nextLine();
+                tasks.add(taskStr);
             }
+        } catch (FileNotFoundException e) {
+            throw new IOException("Error reading task file.", e);
         }
-        output.close();
-        appendOutput.close();
+
+        try (PrintWriter output = new PrintWriter(new FileWriter(taskFile))) {
+            for (String taskData : tasks) {
+                String[] taskDataArray = taskData.split(",");
+                if (!(taskDataArray[0].equals(userName) && taskDataArray[1].equals(listTitle) && taskDataArray[2].equals(itemId))) {
+                    output.println(taskData);
+                }
+            }
+        } catch (IOException e) {
+            throw new IOException("Error writing to task file.", e);
+        }
     }
 
-    public static void editTask(String userName,String listTitle, Item oldItem, Item newItem) throws IOException {
-        deleteTask(userName,listTitle, oldItem.getId());
-        addTask(userName,listTitle, newItem);
+    public static void editTask(String userName, String listTitle, Item oldItem, Item newItem) throws IOException {
+        deleteTask(userName, listTitle, oldItem.getId());
+        addTask(userName, listTitle, newItem);
     }
 
-    public static void addTask(String userName,String listTitle, Item item) throws IOException {
-        PrintWriter appendOutput = new PrintWriter(new FileWriter(taskFile, true));
-        appendOutput.println(userName+ "," + listTitle + "," + item.getId() + "," + item.getTitle() + "," + item.getDescription());
-        appendOutput.close();
+    public static void addTask(String userName, String listTitle, Item item) throws IOException {
+    try (PrintWriter appendOutput = new PrintWriter(new FileWriter(taskFile, true))) {
+        appendOutput.println(userName + "," + listTitle + "," + item.getId() + "," + item.getTitle() + "," + item.getDescription());
+    } catch (IOException e) {
+        throw new IOException("Error appending to task file.", e);
     }
 }
+
+}
+
 

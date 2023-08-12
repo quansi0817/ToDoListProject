@@ -7,7 +7,7 @@ public class Item {
     private boolean isCompleted;
        private String title;
 
-    public Item(String id, String description,String title) {
+    public Item(String id, String title,String description) {
         this.id = id;
         this.description = description;
         this.isCompleted = false;
