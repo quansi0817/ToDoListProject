@@ -5,15 +5,15 @@
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ToDoItemController">
+<AnchorPane stylesheets="@../style/taskStyle.css" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ToDoItemController">
    <children>
       <Label layoutX="84.0" layoutY="14.0" prefHeight="17.0" prefWidth="76.0" text="TO -Do Items" />
-      <ListView fx:id="itemView" layoutX="22.0" layoutY="31.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="addItemButton" layoutX="229.0" layoutY="93.0" mnemonicParsing="false" text="Add New" />
-      <Button fx:id="editItemButton" layoutX="229.0" layoutY="131.0" mnemonicParsing="false" text="Edit" />
-      <Button fx:id="deleteItemButton" layoutX="229.0" layoutY="167.0" mnemonicParsing="false" text="Delete" />
-<Button fx:id="toHomepageButton" layoutX="229.0" layoutY="203.0" mnemonicParsing="false" text="Back To List" />
-
+      <ListView fx:id="itemView" layoutX="22.0" layoutY="31.0" prefHeight="300.0" prefWidth="300.0" />
+      <Button fx:id="addItemButton" layoutX="380.0" layoutY="93.0" mnemonicParsing="false" text="Add New" />
+      <Button fx:id="editItemButton" layoutX="380.0" layoutY="131.0" mnemonicParsing="false" text="Edit" />
+      <Button fx:id="deleteItemButton" layoutX="380.0" layoutY="167.0" mnemonicParsing="false" text="Delete" />
+      <Button fx:id="completeItemButton" layoutX="430.0" layoutY="167.0" mnemonicParsing="false" text="Complete" /> <!-- 修改了Complete按钮的layoutX属性 -->
+      <Button fx:id="toHomepageButton" layoutX="380.0" layoutY="203.0" mnemonicParsing="false" text="Back To List" />
    </children>
 </AnchorPane>
+
