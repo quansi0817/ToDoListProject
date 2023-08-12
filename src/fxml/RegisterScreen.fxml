@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="482.0" prefWidth="690.0" stylesheets="@../style/style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.RegisterController">
    <children>
       <HBox prefHeight="484.0" prefWidth="696.0">
@@ -106,9 +105,9 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <Label alignment="CENTER" layoutX="92.0" layoutY="14.0" prefHeight="134.0" prefWidth="247.0" text="Register">
+                  <Label alignment="CENTER" layoutX="54.0" layoutY="14.0" prefHeight="134.0" prefWidth="341.0" text="Register">
                      <font>
-                        <Font name="Gabriola" size="96.0" />
+                        <Font name="Gabriola" size="72.0" />
                      </font>
                   </Label>
                </children>
