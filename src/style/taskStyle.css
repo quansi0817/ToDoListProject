@@ -1,40 +1,62 @@
-/* 专业的扁平化风格设计 */
 .anchor-pane {
-    -fx-background-color: #F5F5F9; /* 灰白背景，更为柔和，有助于减少视觉疲劳 */
+    -fx-background-color: #f5f5f9;
 }
 
 .label {
-    -fx-font-size: 16px;
+    /* -fx-font-size: 16px; */
     -fx-font-weight: bold;
-    -fx-text-fill: #333333; /* 深灰色，增强文本的对比度和清晰度 */
+    -fx-text-fill: #333333;
 }
 
 .list-view {
-    -fx-background-color: #FFFFFF; /* 白色背景，与主背景形成对比，更加醒目 */
-    -fx-text-fill: #333333; /* 深灰色文本，增强对比度和清晰度 */
-    -fx-border-color: #E0E0E0; /* 浅灰色边框，低对比度但足以分隔元素 */
-    -fx-border-radius: 8px; /* 圆角，与其他元素保持一致性 */
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 10px;
 }
-
+.list-view {
+    font-size: 20px;
+    padding: 5px;
+}
+.list-cell {
+    -fx-transition: all 0.3s ease;
+}
+.list-cell:first-child {
+    -fx-border-radius: 10px 10px 0 0;
+}
+.list-cell:last-child {
+    -fx-border-radius: 0 0 10px 10px;
+}
+.list-cell:hover {
+    -fx-background-color: #0082f4;
+    -fx-text-fill: #fff;
+    transition: all 20s;
+}
+.list-cell:selected {
+    -fx-background-color: #0082f4;
+    -fx-text-fill: #fff;
+}
 .button {
-    -fx-background-color: #2E7D32; /* 深绿色作为按钮背景，与原来的颜色稍有不同，但更显专业 */
-    -fx-text-fill: #FFFFFF; /* 白色文本，与背景形成强烈对比 */
-    -fx-border-radius: 8px; /* 圆角，与其他元素保持一致性 */
-    -fx-font-weight: bold; /* 加粗，使按钮文本更加突出 */
+    -fx-background-color: #0082f4;
+    -fx-text-fill: #ffffff;
+    -fx-border-radius: 20px;
+    -fx-font-weight: bold;
+    -fx-transition: all 1s ease;
 }
 
 .button:hover {
-    -fx-background-color: #1B5E20; /* 当悬停时，更深的绿色为效果 */
+    -fx-background-color: #005ce6;
+    -fx-font-size: 14px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2);
 }
 
 .text-field {
-    -fx-background-color: #FFFFFF; /* 白色背景，与主背景形成对比，更加醒目 */
-    -fx-border-radius: 8px; /* 圆角，与其他元素保持一致性 */
-    -fx-border-color: #E0E0E0; /* 浅灰色边框 */
-    -fx-text-fill: #333333; /* 深灰色文本 */
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10px;
+    -fx-border-color: #e0e0e0;
+    -fx-text-fill: #333333;
 }
 
 .text-field:focus {
-    -fx-border-color: #2E7D32; /* 深绿色为焦点效果，与按钮保持一致性 */
+    -fx-border-color: #2e7d32;
 }
-
