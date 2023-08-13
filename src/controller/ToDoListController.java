@@ -97,7 +97,7 @@ public class ToDoListController {
      listView.setOnMouseClicked(event -> {
     if (event.getClickCount() == 2) {
         selectedList = listView.getSelectionModel().getSelectedItem();  // No 'String' before this
-        App.currentCategory = selectedList;
+        App.currentCategory = selectedList; // 双击后选中的list
         App.setRoot("../fxml/TodoItem");
     }
 });

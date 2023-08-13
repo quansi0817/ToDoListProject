@@ -30,6 +30,9 @@ public class ToDoItemController {
     private Button editItemButton;
 
     @FXML
+    private Button completeItemButton;
+
+    @FXML
     private Button toHomepageButton;
 
     @FXML
@@ -44,8 +47,8 @@ public class ToDoItemController {
     }
 
     public void setCurrentUserAndList(String userName, String listTitle) {
-        this.currentUserName = userName;
-        this.currentListTitle = listTitle;
+        this.currentUserName = userName; // in which username
+        this.currentListTitle = listTitle; // in which list
     }
 
     @FXML
@@ -53,14 +56,15 @@ public class ToDoItemController {
         loadTasks();
         addItemButton.setOnAction(event -> addTask());
         deleteItemButton.setOnAction(event -> deleteTask());
+        completeItemButton.setOnAction(event -> deleteTask());
         editItemButton.setOnAction(event -> editTask());
         toHomepageButton.setOnAction(event ->  App.setRoot("../fxml/TodoList"));
     }
 
-    private void loadTasks() throws IOException {
-        String username = App.getUser().getName();
-        String listname = ToDoListController.selectedList;
-        this.list = new TaskList(listname);  // Initializing class scope list here
+    private void loadTasks() throws IOException { // load tasks from file
+        String username = App.getUser().getName(); // get username from App
+        String listname = ToDoListController.selectedList; 
+        this.list = new TaskList(listname);  
         File file = new File(filePath);
 
         try (Scanner input = new Scanner(file)) {

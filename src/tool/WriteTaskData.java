@@ -8,10 +8,10 @@ public class WriteTaskData {
 
     private static final File taskFile = new File("src/data/task.csv");
 
-    public static void deleteTask(String userName, String listTitle, String itemId) throws IOException {
+    public static void deleteTask(String userName, String listTitle, String itemId) throws IOException { // delete which part of task
         List<String> tasks = new ArrayList<>();
 
-        try (Scanner input = new Scanner(taskFile)) {
+        try (Scanner input = new Scanner(taskFile)) { // read all tasks from file 
             while (input.hasNext()) {
                 String taskStr = input.nextLine();
                 tasks.add(taskStr);
@@ -24,7 +24,7 @@ public class WriteTaskData {
             for (String taskData : tasks) {
                 String[] taskDataArray = taskData.split(",");
                 if (!(taskDataArray[0].equals(userName) && taskDataArray[1].equals(listTitle) && taskDataArray[2].equals(itemId))) {
-                    output.println(taskData);
+                    output.println(taskData); // keep the different task
                 }
             }
         } catch (IOException e) {
